@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/axios/dist/axios.min.js
+      "></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <h1 th:text="${mtr.name}"></h1>
+    <form>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputEmail4">Nombre</label>
+            <input type="text" class="form-control" id="name" th:value="${mtr.name}"> 
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputPassword4">RFC</label>
+            <input type="text" class="form-control" id="rfc" th:value="${mtr.rfc}">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputAddress">CURP</label>
+            <input type="text" class="form-control" id="curp" th:value="${mtr.curp}">
+          </div>
+          <div class="form-group col-md-12">
+            <label for="inputAddress2">Dirección</label>
+            <input type="text" class="form-control" id="address" placeholder="1234 Main St" th:value="${mtr.address}">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">Edad</label>
+            <input type="text" class="form-control" id="age" th:value="${mtr.edad}">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputZip">No. Teléfono</label>
+            <input type="text" class="form-control" id="nPhone" th:value="${mtr.phone}">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputZip">Materia</label>
+            <input type="text" class="form-control" id="materia" th:value="${mtr.materia}">
+          </div>
+        </div>
+        <input type="hidden" class="form-control" th:value="${mtr.ID}" id="ID">
+        <button type="submit" class="btn btn-primary" id="sub">Sign in</button>
+      </form>
+      <script th:inline="javascript">
+          var btnAccep = document.getElementById("sub"); 
+          btnAccep.addEventListener('click', function(){
+
+                axios.post('http://127.0.0.1:4567/modificar', {
+                    id : document.getElementById('ID').value
+                })
+                .then(function (response) {
+                    console.log(response)
+                    console.log(response.data)
+                    console.log(response.statusText)
+        
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+            });
+      </script>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+</html>
