@@ -4,6 +4,8 @@ import com.google.gson.*;
 import static spark.Spark.*;
 import spark.ModelAndView;
 import spark.Route;
+import static spark.Spark.staticFileLocation;
+import spark.Spark;
 import spark.template.thymeleaf.*;
 
 import java.util.HashMap;
@@ -17,16 +19,18 @@ public class App {
     private static Gson gson = new Gson();
 
     public static void main(String[] args) {
+        staticFileLocation("/templates");
         metodosJorge mj = new metodosJorge();
-        options("/*", (request, response) -> {
+        options("/*", (request,response)->{
             String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
             if (accessControlRequestHeaders != null) {
                 response.header("Access-Control-Allow-Headers", accessControlRequestHeaders);
             }
             String accessControlRequestMethod = request.headers("Access-Control-Request-Method");
-            if (accessControlRequestMethod != null) {
+            if(accessControlRequestMethod != null){
                 response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
             }
+    
             return "OK";
         });
         before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
@@ -44,6 +48,7 @@ public class App {
             return new ModelAndView(model, "eliminado"); // located in resources/templates
         }, new ThymeleafTemplateEngine());
         get("/getDatos", (request, response) -> {
+            response.type("text/html");
             Map<String, Object> model = new HashMap<>();
             model.put("mtr", mj.verInfoMtro(Integer.parseInt(request.queryParams("id"))));
             return new ModelAndView(model, "modificarMtro"); // located in resources/templates
@@ -56,10 +61,16 @@ public class App {
         post("/modificar", (request, response) -> {
             String query = request.body();
             System.out.println( "Petición: "+query);
-            //Maestro u = gson.fromJson(query, Maestro.class);
-            //return mj.update(u);
-            return query;
-        });
+            Maestro m = gson.fromJson(query, Maestro.class);
+            Map<String, Object> model = new HashMap<>();
+            model.put("mtr", m);
+            return new ModelAndView(model, "confirmarModificación"); // located in resources/templates
+        }, new ThymeleafTemplateEngine());
+        get("/maestrosPorGrado", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            //model.put("msj", "mensaje");
+            model.put("mtros", mj.getMaestrosPublico(Integer.parseInt(request.queryParams("id"))));
+            return new ModelAndView(model, "verMaestrosPublico"); // located in resources/templates
+        }, new ThymeleafTemplateEngine());
     }
-
 }

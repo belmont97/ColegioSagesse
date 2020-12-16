@@ -1,14 +1,17 @@
 package SW.E6.ColegioSagesse;
 
 public class Maestro {
+    private int ID;
     private String name;
     private String rfc;
     private String curp;
-    private String address;
+    private String imparte;
+    private int grado;
     private String materia;
-    private int ID;
+    private String address;
     private int edad;
     private int phone;
+    private String email;
 
     public Maestro() {
         this.name = "";
@@ -20,14 +23,6 @@ public class Maestro {
         ID = iD;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getID() {
         return ID;
     }
@@ -36,15 +31,12 @@ public class Maestro {
         ID = iD;
     }
 
-    public Maestro(String name, String rfc, String curp, String address, String materia, int iD, int edad, int phone) {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
-        this.rfc = rfc;
-        this.curp = curp;
-        this.address = address;
-        this.materia = materia;
-        ID = iD;
-        this.edad = edad;
-        this.phone = phone;
     }
 
     public String getRfc() {
@@ -63,12 +55,20 @@ public class Maestro {
         this.curp = curp;
     }
 
-    public String getAddress() {
-        return address;
+    public String getImparte() {
+        return imparte;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setImparte(String imparte) {
+        this.imparte = imparte;
+    }
+
+    public int getGrado() {
+        return grado;
+    }
+
+    public void setGrado(int grado) {
+        this.grado = grado;
     }
 
     public String getMateria() {
@@ -77,6 +77,14 @@ public class Maestro {
 
     public void setMateria(String materia) {
         this.materia = materia;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public int getEdad() {
@@ -93,6 +101,29 @@ public class Maestro {
 
     public void setPhone(int phone) {
         this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Maestro(int iD, String name, String rfc, String curp, String imparte, int grado, String materia,
+            String address, int edad, int phone, String email) {
+        this.ID = iD;
+        this.name = name;
+        this.rfc = rfc;
+        this.curp = curp;
+        this.imparte = imparte;
+        this.grado = grado;
+        this.materia = materia;
+        this.address = address;
+        this.edad = edad;
+        this.phone = phone;
+        this.email = email;
     }
     
 }

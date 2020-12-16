@@ -6,64 +6,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styleInstalaciones.css">
     <title>Document</title>
 </head>
 <body>
-    <h1 th:text="${mtr.name}"></h1>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand"><img src="../Proyecto Sistemas/imagenes/logo.png" class="logo-brand" alt="logo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <ion-icon name="menu-outline"> </ion-icon>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#ofertaA">Oferta Académica</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#ubicacion">Ubicación</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
     <form>
         <div class="form-row">
           <div class="form-group col-md-4">
-            <label for="inputEmail4">Nombre</label>
+            <label for="name">Nombre</label>
             <input type="text" class="form-control" id="name" th:value="${mtr.name}"> 
           </div>
           <div class="form-group col-md-4">
-            <label for="inputPassword4">RFC</label>
+            <label for="rfc">RFC</label>
             <input type="text" class="form-control" id="rfc" th:value="${mtr.rfc}">
           </div>
           <div class="form-group col-md-4">
-            <label for="inputAddress">CURP</label>
+            <label for="curp">CURP</label>
             <input type="text" class="form-control" id="curp" th:value="${mtr.curp}">
           </div>
-          <div class="form-group col-md-12">
-            <label for="inputAddress2">Dirección</label>
+          <div class="form-group col-md-6">
+            <label for="inputImparte">Imparte</label>
+            <input type="text" class="form-control" id="inputImparte" placeholder="1234 Main St" th:value="${mtr.imparte}">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="address">Dirección</label>
             <input type="text" class="form-control" id="address" placeholder="1234 Main St" th:value="${mtr.address}">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="inputCity">Edad</label>
-            <input type="text" class="form-control" id="age" th:value="${mtr.edad}">
-          </div>
-          <div class="form-group col-md-3">
-            <label for="inputZip">No. Teléfono</label>
-            <input type="text" class="form-control" id="nPhone" th:value="${mtr.phone}">
-          </div>
-          <div class="form-group col-md-3">
-            <label for="inputZip">Materia</label>
+            <label for="inputGrado">Grado</label>
+            <input type="grado" min="1" max="3" class="form-control" id="inputGrado" th:value="${mtr.grado}">
+          </div><div class="form-group col-md-3">
+            <label for="materia">Materia</label>
             <input type="text" class="form-control" id="materia" th:value="${mtr.materia}">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="age">Edad</label>
+            <input type="number" max="100" min="18" class="form-control" id="age" th:value="${mtr.edad}">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="nPhone">No. Teléfono</label>
+            <input type="number" class="form-control" id="nPhone" th:value="${mtr.phone}">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="mail">Correo institucional</label>
+            <input type="mail" class="form-control" id="mail" th:value="${mtr.email}">
           </div>
         </div>
         <input type="hidden" class="form-control" th:value="${mtr.ID}" id="ID">
-        <button type="submit" class="btn btn-primary" id="sub">Sign in</button>
+        <button type="button" class="btn btn-primary" id="sub">Realizar cambios</button>
+        <a href="../../../../html/mainAdmin.html">Cancelar</a>
       </form>
-      <script th:inline="javascript">
-          var btnAccep = document.getElementById("sub"); 
-          btnAccep.addEventListener('click', function(){
-
-                axios.post('http://127.0.0.1:4567/modificar', {
-                    id : document.getElementById('ID').value
-                })
-                .then(function (response) {
-                    console.log(response)
-                    console.log(response.data)
-                    console.log(response.statusText)
-        
-                })
-                .catch(function (error) {
-                    console.log(error)
-                })
-            });
-      </script>
+      <script src="js/modificar.js"></script>
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

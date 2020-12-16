@@ -21,17 +21,7 @@ public class metodosJorge {
             stm = con.prepareStatement(sql);
             rs = stm.executeQuery();
             if(rs!=null){
-                //msj = msj + "<table class='table table-striped table-borderless table-hover'>";
-                //msj = msj + "<thead><tr><th scope='col'>Maestro</th><th scope='col'>Modificar</th>";
-                //msj = msj + "<th scope='col'>Eliminar</th></tr></thead><tbody>";
                 while (rs.next()) {               // Situar el cursor 
-                    //msj = msj + "<tr>";
-                    //msj = msj + "<th scope='row'><a href='verInfo.php?id="+rs.getString(1)+"'>"+rs.getString(2)+"</a></th>";
-                    //msj = msj + "<td><a class='btn btn-warning' href='modificar.php?id="+rs.getString(1)+"'><img src='../Bootstrap/iconos/pencil.svg'></a></td>";
-                    //msj = msj + "<td><a class='btn btn-danger' href='eliminar.php?id="+rs.getString(1)+"'><img src='../Bootstrap/iconos/trashcan.svg'></a></td>";
-                    //msj = msj + "</tr>";
-                    //empnum = rs.getString(1);    // Obtener el valor de la primera columna
-                    //phonenum = rs.getString(2);  // Obtener el valor de la primera columna
                     Maestro mtr = new Maestro(rs.getString(2), rs.getInt(1));
                     resultado.add(mtr);
                 }
@@ -124,7 +114,7 @@ public class metodosJorge {
             rs = stm.executeQuery();
             if(rs!=null){ 
                 while (rs.next()) {  
-                    mtro = new Maestro(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(8), rs.getInt(1), rs.getInt(6), rs.getInt(7));
+                    mtro = new Maestro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getString(11));
                 }
             }else{
                 msj = "Datos no encontrados";
@@ -206,5 +196,53 @@ public class metodosJorge {
             }
         }
         return msj;
+    }
+    public static List<Maestro> getMaestrosPublico(int id) {
+        PreparedStatement stm = null;
+        Connection con = null;
+        ResultSet rs = null;
+        List<Maestro> resultado = new ArrayList<>();
+        String msj = "";
+        con = conexion.getConection();
+        try{
+            String sql = "SELECT * FROM MAESTRO WHERE Grado=?";
+            stm = con.prepareStatement(sql);
+            stm.setInt(1, id);
+            rs = stm.executeQuery();
+            if(rs!=null){
+                while (rs.next()) {               // Situar el cursor 
+                    Maestro mtr = new Maestro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getString(11));
+                    resultado.add(mtr);
+                }
+            }else{
+                msj = "Datos no encontrados";
+            }
+        }catch(Exception e){
+            System.out.println("Error");
+            e.printStackTrace();
+        }finally{
+            if(rs != null){
+                try{
+                    rs.close();
+                }catch(SQLException e){
+                    e.printStackTrace();
+                }
+                rs = null;
+            }
+            if(stm != null){
+                try{
+                    stm.close();
+                }catch(Exception e){
+                    e.printStackTrace();
+                }
+                stm = null;
+            }try{
+                con.close();
+                System.out.println("Closed connection");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        return resultado;
     }
 }
