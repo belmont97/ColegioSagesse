@@ -48,23 +48,23 @@ public class App {
         get("/eliminar", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("mtro", new Maestro(request.queryParams("name"), Integer.parseInt(request.queryParams("id"))));
-            return new ModelAndView(model, "verifiEliminar"); // located in resources/templates
+            return new ModelAndView(model, "html/verifiEliminar"); // located in resources/templates
         }, new ThymeleafTemplateEngine());
         get("/deleteMtro", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("mensaje", mj.delete(Integer.parseInt(request.queryParams("id"))));
-            return new ModelAndView(model, "eliminado"); // located in resources/templates
+            return new ModelAndView(model, "html/eliminado"); // located in resources/templates
         }, new ThymeleafTemplateEngine());
         get("/getDatos", (request, response) -> {
             response.type("text/html");
             Map<String, Object> model = new HashMap<>();
             model.put("mtr", mj.verInfoMtro(Integer.parseInt(request.queryParams("id"))));
-            return new ModelAndView(model, "modificarMtro"); // located in resources/templates
+            return new ModelAndView(model, "html/modificarMtro"); // located in resources/templates
         }, new ThymeleafTemplateEngine());
         get("/verInfo", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("mtr", mj.verInfoMtro(Integer.parseInt(request.queryParams("id"))));
-            return new ModelAndView(model, "verInfo"); // located in resources/templates
+            return new ModelAndView(model, "html/verInfo"); // located in resources/templates
         }, new ThymeleafTemplateEngine());
         post("/modificar", (request, response) -> {
             String query = request.body();
@@ -78,7 +78,22 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             //model.put("msj", "mensaje");
             model.put("mtros", mj.getMaestrosPublico(Integer.parseInt(request.queryParams("id"))));
-            return new ModelAndView(model, "verMaestrosPublico"); // located in resources/templates
+            return new ModelAndView(model, "html/verMaestrosPublico"); // located in resources/templates
+        }, new ThymeleafTemplateEngine());
+
+        /*                parte de Sam y Jessi <3*/ 
+        get("/materias", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/index");
+        }, new ThymeleafTemplateEngine());
+        get("/index2", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/index");
+        }, new ThymeleafTemplateEngine());
+        /*                parte de Richard                       */ 
+        get("/agregarMaestro", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/agregar");
         }, new ThymeleafTemplateEngine());
     }
 }

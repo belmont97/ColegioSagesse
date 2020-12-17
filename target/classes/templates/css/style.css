@@ -1,0 +1,206 @@
+body{
+    height: 100%;
+    background-image: radial-gradient(circle at 50% 50%, #c3fff7 0, #acfff5 12.5%, #90fff3 25%, #6ffcf2 37.5%, #3cf2f2 50%, #00e8f3 62.5%, #00def6 75%, #00d5fa 87.5%, #00ccfe 100%);
+    font-family: 'Titillium Web', sans-serif;
+}
+
+h1 {font-size: 57px; font-weight: 600; line-height: 80px;}
+h2 {font-size: 55px; margin-bottom: 10px;}
+
+.navbar{
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05);
+    min-height: 100px;
+}
+ /*parrafo secundaria texto*/
+p {
+    font-size: 24px;
+    line-height: 1.8;
+    margin-bottom: 0;
+    font-weight: bold;
+    font-family: cursive;
+    -webkit-text-fill-color: #080808;
+    -webkit-text-stroke: 0.4px rgb(14, 223, 238);
+}
+
+/*quitar linea que se hace en las imagenes agregadas como hipervinculo*/
+a:hover{
+    text-decoration: none;
+}
+
+section {
+    padding: 120px 0;
+}
+
+.topmargin-sx {margin-top: 15px !important;}
+.topmargin-sm {margin-top: 30px !important;}
+.topmargin-lg {margin-top: 60px !important;}
+
+.btn {
+    font-size: 24px;
+    padding: 15px 24px;
+    min-width: 160px;
+    border-radius: 2px;
+    display: inline-block;
+}
+.btn-light{
+    background-color: #04faa8;
+    color: #0a0a0a;
+    border: 3px solid #04faa8;
+    font-weight: 600; 
+    font-family: cursive;
+}
+
+/*texto de abajo de la pagina*/
+.text-dark{
+    color: #140202; 
+    font-weight: bold;
+}
+ion-icon {
+    font-size: 24px ;
+    margin-left: 5px;
+}
+
+.nav-link {color: #050505;}
+.nav-link:hover {color: #1201fa;}
+
+.logo-brand{
+    min-width: 160px;
+    max-width: 180px;
+}
+
+.navbar-toggler { font-size: 40px;}
+.navbar-toggler:focus {outline: none;}
+
+/*color titulo h1*/
+#hero {
+    background-image: url(/imagenes/papeleriafondo.jpg);
+    background-size: cover;
+    padding-top: 96px;
+    min-height: 700px;
+    color: #031150;
+    font-family: cursive;
+}
+
+/*color parrafo 1 de imagen principal*/
+#hero p1 {
+    font-size: 35px;
+    -webkit-text-fill-color:#4606f7;
+    -webkit-text-stroke: 0.8px rgb(61, 248, 4);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.content-right{
+    max-width: 1000px;
+    margin: 0 auto 60px auto;
+    text-align: right;
+}
+
+.content-center{
+    max-width: 800px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+}
+
+/*poner imagenes que se hacen grandes al pasar el cursor*/
+.ofertaA-container{
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0;
+    border-radius: 2px;
+}
+
+/*efecto de agrandar imagen*/
+.ofertaA-container img{
+    -moz-transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+.ofertaA-container:hover img{
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.ofertaA-details{
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    z-index: 9000;
+}
+
+/*quitar espacio entre los textos de la imagen*/
+.ofertaA-details h2{
+    margin-bottom: 0px;
+}
+
+/*cambiar color de texto en la imagen*/
+.ofertaA-details a h2, .ofertaA-details a p{
+   -webkit-text-fill-color:#03129e;
+   -webkit-text-stroke: 0.6px rgb(0, 238, 255);
+   font-family: cursive;
+}
+
+/*FOOTER*/
+.page-wrapper{
+    min-height: 100%;
+}
+.footer{
+    background: #303036;
+    color: #d3d3d3;
+    height: 370px;
+    position: relative;
+}
+.footer .footer-content{
+    height: 350px;
+    display: flex;
+}
+.footer .footer-content .footer-section{
+    flex: 1;
+    padding: 25px;
+}
+.footer .footer-content h1,
+.footer .footer-content h2{
+    font-size: 30px;
+    color: white;
+}
+.footer .footer-content h3{
+   color: white;
+   font-size: 17px;
+   font-weight: 100;
+   text-align: justify;
+}
+.footer .footer-content .about h1 span{
+    color: #05f7ff;
+}
+.footer .footer-content .about .contact span{
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+.footer .footer-content .contact-form span{
+    color: #05f7ff;
+}
+.footer .footer-bottom{
+   background: #343a40;
+   color: #686868;
+   width: 100%;
+   height: 40px;
+   text-align: center;
+   position: absolute;
+   bottom: 0px;
+   left: 0px;
+   padding-top: 10px;
+}
+@media (max-width: 575.98px) {
+    h1 { font-size: 40px;line-height: normal;}
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) { ... }
+
+@media (min-width: 768px) and (max-width: 991.98px) { ... }
+
+@media (min-width: 992px) and (max-width: 1199.98px) { ... }
+
+@media (min-width: 1200px) { ... }
