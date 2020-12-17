@@ -154,20 +154,23 @@ public class metodosJorge {
         ResultSet rs = null;
         con = conexion.getConection();
         try{
-            String sql = "UPDATE maestro SET Nombre=?, RFC=?, Curp=?, Direccion=?, Edad=?, No_Telefono=?, Materia=? WHERE NoTrabajador=?";
+            String sql = "UPDATE maestro SET Nombre=?, RFC=?, Curp=?, Imparte=?, Grado=?, NombreMateria=?, Direccion=?, Edad=?, No_Telefono=?, CorreoInstitucional=? WHERE NoTrabajador=?";
             stm = con.prepareStatement(sql);
             stm.setString(1, mtr.getName());
             stm.setString(2, mtr.getRfc());
             stm.setString(3, mtr.getCurp());
-            stm.setString(4, mtr.getAddress());
-            stm.setInt(5, mtr.getEdad());
-            stm.setInt(6, mtr.getPhone());
-            stm.setString(7, mtr.getMateria());
-            stm.setInt(8, mtr.getID());
+            stm.setString(4, mtr.getImparte());
+            stm.setInt(5, mtr.getGrado());
+            stm.setString(6, mtr.getMateria());
+            stm.setString(7, mtr.getAddress());
+            stm.setInt(8, mtr.getEdad());
+            stm.setInt(9, mtr.getPhone());
+            stm.setString(10, mtr.getEmail());
+            stm.setInt(11, mtr.getID());
             if(stm.executeUpdate()>0){
-                msj = "Usuario eliminado";
+                msj = "Usuario modificadoado";
             }else{
-                msj = "Usuario no eliminado";
+                msj = "Usuario no modificadoado";
             }
         }catch(Exception e){
             System.out.println("Error");

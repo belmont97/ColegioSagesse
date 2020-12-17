@@ -37,6 +37,14 @@ public class App {
         //before((req, res)->res.type("application/json"));
         //before((req, res)->res.type("*/*"));
         post("/tablaMaestros", (req, res) -> gson.toJson(mj.getMaestros()));
+        get("/mainAdmin", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/mainAdmin");
+        }, new ThymeleafTemplateEngine());
+        get("/instalaciones", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/intalaciones");
+        }, new ThymeleafTemplateEngine());
         get("/eliminar", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             model.put("mtro", new Maestro(request.queryParams("name"), Integer.parseInt(request.queryParams("id"))));
@@ -62,10 +70,10 @@ public class App {
             String query = request.body();
             System.out.println( "Petición: "+query);
             Maestro m = gson.fromJson(query, Maestro.class);
-            Map<String, Object> model = new HashMap<>();
-            model.put("mtr", m);
-            return new ModelAndView(model, "confirmarModificación"); // located in resources/templates
-        }, new ThymeleafTemplateEngine());
+            /*Map<String, Object> model = new HashMap<>();
+            model.put("mtr", m);*/
+            return mj.update(m);
+        });
         get("/maestrosPorGrado", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             //model.put("msj", "mensaje");
