@@ -30,7 +30,6 @@ public class App {
             if(accessControlRequestMethod != null){
                 response.header("Access-Control-Allow-Methods", accessControlRequestMethod);
             }
-    
             return "OK";
         });
         before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
@@ -82,13 +81,49 @@ public class App {
         }, new ThymeleafTemplateEngine());
 
         /*                parte de Sam y Jessi <3*/ 
-        get("/materias", (request, response) -> {
+        get("/Inicio", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "html/index");
         }, new ThymeleafTemplateEngine());
-        get("/index2", (request, response) -> {
+        get("/Acceso", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "html/index");
+            return new ModelAndView(model, "html/logeo");
+        }, new ThymeleafTemplateEngine());
+        get("/VerDocentes", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/maestros");
+        }, new ThymeleafTemplateEngine());
+        get("/VerMaterias", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/materias");
+        }, new ThymeleafTemplateEngine());
+        get("/MatPrimero", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/materiasPrimero");
+        }, new ThymeleafTemplateEngine());
+        get("/MatSegundo", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/materiasSegundo");
+        }, new ThymeleafTemplateEngine());
+        get("/MatTercero", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/materiasTercero");
+        }, new ThymeleafTemplateEngine());
+        get("/VerTalleres", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/talleres");
+        }, new ThymeleafTemplateEngine());
+        get("/TalleresPrimero", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/talleresPrimero");
+        }, new ThymeleafTemplateEngine());
+        get("/TalleresSegundo", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/talleresSegundo");
+        }, new ThymeleafTemplateEngine());
+        get("/TalleresTercero", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/talleresTercero");
         }, new ThymeleafTemplateEngine());
         /*                parte de Richard                       */ 
         get("/agregarMaestro", (request, response) -> {
