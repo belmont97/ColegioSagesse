@@ -127,8 +127,9 @@ public class App {
         }, new ThymeleafTemplateEngine());
         /*                parte de Richard                       */ 
         get("/agregarMaestro", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "html/agregar");
-        }, new ThymeleafTemplateEngine());
-    }
+            String query = request.body();
+            System.out.println("Se solicitó" +query);
+            Maestro master = gson.fromJson(query, Maestro.class);
+            return mj.guardarMaestro(master);
+        });
 }

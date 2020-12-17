@@ -256,18 +256,18 @@ public class metodosJorge {
         Connection conexion = Conexion.getConection();
         try {
             String consulta = "INSERT INTO maestro ( NoTrabajador,  Nombre, RFC, Curp, Imparte, Grado, NombreMateria, Direccion, Edad, No_Telefono, CorreoInstitucional) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            stm = conexion.prepareStatement(sql);
-            presta.setString(1, maestro.getID());
-            presta.setString(2, maestro.getName() );
-            presta.setString(3, maestro.getRfc() );
-            presta.setString(4, maestro.getCurp() );
-            presta.setString(5, maestro.getImparte() );
-            presta.setString(6, maestro.getGrado() );
-            presta.setString(7, maestro.getNombreMateria() );
-            presta.setString(8, maestro.getAddress() );
-            presta.setString(9, maestro.getEdad() );
-            presta.setString(10, maestro.getPhone() );
-            presta.setString(11, maestro.getEmail() );
+            stm = conexion.prepareStatement(consulta);
+            stm.setInt(1, maestro.getID());
+            stm.setString(2, maestro.getName() );
+            stm.setString(3, maestro.getRfc() );
+            stm.setString(4, maestro.getCurp() );
+            stm.setString(5, maestro.getImparte() );
+            stm.setInt(6, maestro.getGrado() );
+            stm.setString(7, maestro.getMateria() );
+            stm.setString(8, maestro.getAddress() );
+            stm.setInt(9, maestro.getEdad() );
+            stm.setInt(10, maestro.getPhone() );
+            stm.setString(11, maestro.getEmail() );
            if(stm.executeUpdate()> 0 )
                 validacion = "Se agregó un maestro";
            else
