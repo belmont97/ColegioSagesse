@@ -248,4 +248,56 @@ public class metodosJorge {
         }
         return resultado;
     }
+
+    public String guardarMaestro(Maestro maestro){
+        String validacion = "";
+        PreparedStatement stm = null;
+        ResultSet  rs = null;
+        Connection conexion = Conexion.getConection();
+        try {
+            String consulta = "INSERT INTO maestro ( NoTrabajador,  Nombre, RFC, Curp, Imparte, Grado, NombreMateria, Direccion, Edad, No_Telefono, CorreoInstitucional) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            stm = conexion.prepareStatement(sql);
+            presta.setString(1, maestro.getID());
+            presta.setString(2, maestro.getName() );
+            presta.setString(3, maestro.getRfc() );
+            presta.setString(4, maestro.getCurp() );
+            presta.setString(5, maestro.getImparte() );
+            presta.setString(6, maestro.getGrado() );
+            presta.setString(7, maestro.getNombreMateria() );
+            presta.setString(8, maestro.getAddress() );
+            presta.setString(9, maestro.getEdad() );
+            presta.setString(10, maestro.getPhone() );
+            presta.setString(11, maestro.getEmail() );
+           if(stm.executeUpdate()> 0 )
+                validacion = "Se agregó un maestro";
+           else
+                validacion = "Error al agregar maestro";
+        } catch (Exception e) {
+            System.out.print(e.getMessage());
+        }finally{
+            if(rs != null){
+                try{
+                    rs.close();
+                }catch(SQLException sqle){
+                    System.out.println(sqle.getMessage());
+                }
+                rs = null;
+            }
+            if(stm != null){
+                try{
+                    stm.close();
+                }catch(Exception ex){
+                    System.out.println(ex.getMessage());
+                }
+                stm = null;
+            }
+            try {
+                conexion.close();
+                System.out.println("Cerrando conexion");
+            } catch (Exception cone) {
+               System.out.println(cone.getMessage());
+            }
+        }
+        return validacion;
+    }
 }
