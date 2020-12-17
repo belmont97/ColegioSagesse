@@ -102,8 +102,8 @@
               <goals>
                 <goal>single</goal>
               </goals>  
-            <execution> 
-          <executions>  
+            </execution> 
+          </executions>  
           <configuration>
             <descriptorRefs>
               <!--Esto le dice a Maven que incluya todas las dependencias-->
