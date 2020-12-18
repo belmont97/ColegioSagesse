@@ -1,6 +1,6 @@
 var btnAccep = document.getElementById("sub"); 
 btnAccep.addEventListener('click', function(){
-
+    $('#exampleModal').modal('hide');
     axios.post('http://127.0.0.1:4567/modificar', {
         ID : document.getElementById('ID').value,
         name: document.getElementById('name').value,
@@ -17,6 +17,9 @@ btnAccep.addEventListener('click', function(){
         console.log(response)
         console.log(response.data)
         console.log(response.statusText)
+        var mensaje = document.getElementById("result"); 
+        mensaje.innerHTML = response.data;
+        $('#realizado').modal('show')
     }).catch(function (error) {
         console.log(error)
     })

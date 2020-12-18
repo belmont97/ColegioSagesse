@@ -25,7 +25,6 @@ public class metodosJorge {
                     Maestro mtr = new Maestro(rs.getString(2), rs.getInt(1));
                     resultado.add(mtr);
                 }
-                //msj = msj + "</tbody></table>";
             }else{
                 msj = "Datos no encontrados";
             }
@@ -168,9 +167,9 @@ public class metodosJorge {
             stm.setString(10, mtr.getEmail());
             stm.setInt(11, mtr.getID());
             if(stm.executeUpdate()>0){
-                msj = "Usuario modificadoado";
+                msj = "Maestro modificado";
             }else{
-                msj = "Usuario no modificadoado";
+                msj = "Maestro no modificado";
             }
         }catch(Exception e){
             System.out.println("Error");
