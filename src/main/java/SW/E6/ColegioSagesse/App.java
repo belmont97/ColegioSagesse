@@ -20,6 +20,8 @@ public class App {
 
     public static void main(String[] args) {
         port(getHerokuAssignedPort());
+        get("/",(req, res)->{
+        return ""; });
         staticFileLocation("/templates");
         metodosJorge mj = new metodosJorge();
         options("/*", (request,response)->{
