@@ -41,7 +41,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "html/mainAdmin");
         }, new ThymeleafTemplateEngine());
-        get("/instalaciones", (request, response) -> {
+        get("/Instalaciones", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "html/intalaciones");
         }, new ThymeleafTemplateEngine());
@@ -98,6 +98,10 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "html/materias");
         }, new ThymeleafTemplateEngine());
+        get("/VerTalleres", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/talleres");
+        }, new ThymeleafTemplateEngine());
         get("/MatPrimero", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "html/materiasPrimero");
@@ -109,10 +113,6 @@ public class App {
         get("/MatTercero", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "html/materiasTercero");
-        }, new ThymeleafTemplateEngine());
-        get("/VerTalleres", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "html/talleres");
         }, new ThymeleafTemplateEngine());
         get("/TalleresPrimero", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
