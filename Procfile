@@ -1,0 +1,1 @@
+web: java -jar ./target/ColegioSagesse-1.0-SNAPSHOT-jar-with-dependencies
