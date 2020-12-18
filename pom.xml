@@ -95,6 +95,16 @@
           <version>3.0.0</version>
         </plugin>
         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>2.3.2</version>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+
+        <plugin>
           <artifactId>maven-assembly-plugin</artifactId>
           <executions>
             <execution>
@@ -124,7 +134,7 @@
           <version>3.0.4</version>
           <configuration>
             <jdkVersion>1.8</jdkVersion>
-            <appName>colegio-sagesse</appName>
+            <appName>cole-sag</appName>
             <processTypes>
               <!--Tell Heroku lunches the aplication-->
               <web>java -jar ./target/my-app-1.0-jar-with-dependencies.jar</web>
