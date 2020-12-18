@@ -21,17 +21,12 @@ function validar_iniciar_sesion(e){
       document.getElementById("password").focus();
       return false;
     }
-
     // si los datos son válidos, se verifica que las credenciales coincidan
     // en este caso con  sagesse y admin
     if(usuario=="sagesse" && password1=="admin"){
         // si es correcto se abre la ventana de la pagina con el sistema 
-      //window.open("http://127.0.0.1:4567/mainAdmin");
-      //window.location.replace='http://127.0.0.1:4567/mainAdmin';
-      
        window.location.href = "http://127.0.0.1:4567/mainAdmin";
         // y se cierra la ventana del login
-      //window.close();
     }else{
         // en caso de que sean incorrectos el usuario o contraseña, se envía un mensaje de notificación
         alert("Credenciales inválidas, verifique!!!!");
