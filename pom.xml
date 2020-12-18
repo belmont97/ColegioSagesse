@@ -124,7 +124,7 @@
             </descriptorRefs>  
             <archive>
               <manifest>
-                <mainClass>SW.E6.ColegioSagesse.App</mainClass>
+                <mainClass>App</mainClass>
               </manifest>
             </archive>    
           </configuration>
