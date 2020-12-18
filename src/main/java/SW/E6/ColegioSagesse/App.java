@@ -19,6 +19,7 @@ public class App {
     private static Gson gson = new Gson();
 
     public static void main(String[] args) {
+        port(getHerokuAssignedPort());
         staticFileLocation("/templates");
         metodosJorge mj = new metodosJorge();
         options("/*", (request,response)->{
@@ -40,7 +41,7 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "html/mainAdmin");
         }, new ThymeleafTemplateEngine());
-        get("/instalaciones", (request, response) -> {
+        get("/Instalaciones", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "html/intalaciones");
         }, new ThymeleafTemplateEngine());
@@ -97,6 +98,10 @@ public class App {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "html/materias");
         }, new ThymeleafTemplateEngine());
+        get("/VerTalleres", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/talleres");
+        }, new ThymeleafTemplateEngine());
         get("/MatPrimero", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "html/materiasPrimero");
@@ -108,10 +113,6 @@ public class App {
         get("/MatTercero", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "html/materiasTercero");
-        }, new ThymeleafTemplateEngine());
-        get("/VerTalleres", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "html/talleres");
         }, new ThymeleafTemplateEngine());
         get("/TalleresPrimero", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -132,5 +133,14 @@ public class App {
             Maestro master = gson.fromJson(query, Maestro.class);
             return mj.guardarMaestro(master);
         });
+
 }
+static int getHerokuAssignedPort() {
+    ProcessBuilder processBuilder = new ProcessBuilder();
+    if (processBuilder.environment().get("PORT") != null) {
+        return Integer.parseInt(processBuilder.environment().get("PORT"));
+    }
+    return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+}
+
 }

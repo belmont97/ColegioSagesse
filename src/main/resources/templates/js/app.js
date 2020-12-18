@@ -25,7 +25,9 @@ function validar_iniciar_sesion(){
     // en este caso con  sagesse y admin
     if(usuario=="sagesse" && password1=="admin"){
         // si es correcto se abre la ventana de la pagina con el sistema
-        window.open("sistema.html");
+        window.open("http://127.0.0.1:4567/mainAdmin");
+        //window.location.replace("http://127.0.0.1:4567/mainAdmin"); 
+
         // y se cierra la ventana del login
         window.close();
     }else{
