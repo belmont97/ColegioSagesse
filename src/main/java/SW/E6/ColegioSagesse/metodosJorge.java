@@ -8,14 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class metodosJorge {
-    private static Conexion conexion = new Conexion();
     public static List<Maestro> getMaestros() {
         PreparedStatement stm = null;
         Connection con = null;
         ResultSet rs = null;
         List<Maestro> resultado = new ArrayList<>();
-        String msj = "";
-        con = conexion.getConection();
+        con = Conexion.getConection();
         try{
             String sql = "SELECT NoTrabajador, Nombre FROM MAESTRO";
             stm = con.prepareStatement(sql);
@@ -26,7 +24,7 @@ public class metodosJorge {
                     resultado.add(mtr);
                 }
             }else{
-                msj = "Datos no encontrados";
+                System.out.println("Datos no encontrados"); 
             }
         }catch(Exception e){
             System.out.println("Error");
@@ -61,7 +59,7 @@ public class metodosJorge {
         PreparedStatement stm = null;
         Connection con = null;
         ResultSet rs = null;
-        con = conexion.getConection();
+        con = Conexion.getConection();
         try{
             String sql = "DELETE FROM maestro WHERE NoTrabajador=?";
             stm = con.prepareStatement(sql);
@@ -100,12 +98,11 @@ public class metodosJorge {
         return msj;
     } 
     public Maestro verInfoMtro(int id){
-        String msj = " ";
         PreparedStatement stm = null;
         Connection con = null;
         ResultSet rs = null;
         Maestro mtro = new Maestro();
-        con = conexion.getConection();
+        con = Conexion.getConection();
         try{
             String sql = "SELECT * FROM maestro WHERE NoTrabajador=?";
             stm = con.prepareStatement(sql);
@@ -116,7 +113,7 @@ public class metodosJorge {
                     mtro = new Maestro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getString(11));
                 }
             }else{
-                msj = "Datos no encontrados";
+                System.out.println("Datos no encontrados");
             }
         }catch(Exception e){
             System.out.println("Error");
@@ -151,7 +148,7 @@ public class metodosJorge {
         PreparedStatement stm = null;
         Connection con = null;
         ResultSet rs = null;
-        con = conexion.getConection();
+        con = Conexion.getConection();
         try{
             String sql = "UPDATE maestro SET Nombre=?, RFC=?, Curp=?, Imparte=?, Grado=?, NombreMateria=?, Direccion=?, Edad=?, No_Telefono=?, CorreoInstitucional=? WHERE NoTrabajador=?";
             stm = con.prepareStatement(sql);
@@ -204,8 +201,7 @@ public class metodosJorge {
         Connection con = null;
         ResultSet rs = null;
         List<Maestro> resultado = new ArrayList<>();
-        String msj = "";
-        con = conexion.getConection();
+        con = Conexion.getConection();
         try{
             String sql = "SELECT * FROM MAESTRO WHERE Grado=?";
             stm = con.prepareStatement(sql);
@@ -217,7 +213,7 @@ public class metodosJorge {
                     resultado.add(mtr);
                 }
             }else{
-                msj = "Datos no encontrados";
+                System.out.println("Datos no encontrados");
             }
         }catch(Exception e){
             System.out.println("Error");
