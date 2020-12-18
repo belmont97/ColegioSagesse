@@ -40,6 +40,7 @@ window.onload = function() {
               var verMaestro = document.createElement('th');
               verMaestro.setAttribute("scope", "row");
               var anclaVer = document.createElement('a');
+              anclaVer.setAttribute("class", "text-dark");
               anclaVer.setAttribute("href", "http://127.0.0.1:4567/verInfo?id="+response.data[clave].ID);
               anclaVer.innerHTML = response.data[clave].name;
               verMaestro.appendChild(anclaVer);
@@ -50,7 +51,7 @@ window.onload = function() {
               anclaMod.setAttribute("href", "http://127.0.0.1:4567/getDatos?id="+response.data[clave].ID);
               anclaMod.setAttribute("class", "btn btn-warning");
               var imgMod = document.createElement('img');
-              imgMod.setAttribute("src", "../Bootstrap/iconos/pencil.svg");
+              imgMod.setAttribute("src", "../images/iconos/pencil.svg");
               anclaMod.appendChild(imgMod);
               modificarMaestro.appendChild(anclaMod);
               renglonBody.appendChild(modificarMaestro);
@@ -60,7 +61,7 @@ window.onload = function() {
               anclaDel.setAttribute("href", "http://127.0.0.1:4567/eliminar?id="+response.data[clave].ID+"&name="+response.data[clave].name);
               anclaDel.setAttribute("class", "btn btn-danger");
               var imgDel = document.createElement('img');
-              imgDel.setAttribute("src", "../Bootstrap/iconos/trashcan.svg");
+              imgDel.setAttribute("src", "../images/iconos/trashcan.svg");
               anclaDel.appendChild(imgDel);
               eliminarMaestro.appendChild(anclaDel);
               renglonBody.appendChild(eliminarMaestro);
