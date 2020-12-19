@@ -124,7 +124,7 @@
             </descriptorRefs>  
             <archive>
               <manifest>
-                <mainClass>App</mainClass>
+                <mainClass>SW.E6.ColegioSagesse.App</mainClass>
               </manifest>
             </archive>    
           </configuration>
@@ -148,3 +148,5 @@
     </pluginManagement>
   </build>
 </project>
+
+

@@ -39,50 +39,50 @@
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="name">Nombre</label>
-            <input type="text" class="form-control" id="name" th:value="${mtr.name}"> 
+            <input type="text" class="form-control" id="name"> 
           </div>
           <div class="form-group col-md-4">
             <label for="rfc">RFC</label>
-            <input type="text" class="form-control" id="rfc" th:value="${mtr.rfc}">
+            <input type="text" class="form-control" id="rfc" >
           </div>
           <div class="form-group col-md-4">
             <label for="curp">CURP</label>
-            <input type="text" class="form-control" id="curp" th:value="${mtr.curp}">
+            <input type="text" class="form-control" id="curp">
           </div>
           <div class="form-group col-md-6">
             <label for="inputImparte">Imparte</label>
-            <input type="text" class="form-control" id="inputImparte" placeholder="1234 Main St" th:value="${mtr.imparte}">
+            <input type="text" class="form-control" id="inputImparte" >
           </div>
           <div class="form-group col-md-6">
             <label for="address">Dirección</label>
-            <input type="text" class="form-control" id="address" placeholder="1234 Main St" th:value="${mtr.address}">
+            <input type="text" class="form-control" id="address" >
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputGrado">Grado</label>
-            <input type="grado" min="1" max="3" class="form-control" id="inputGrado" th:value="${mtr.grado}">
+            <input type="grado" min="1" max="3" class="form-control" id="inputGrado" >
           </div><div class="form-group col-md-3">
             <label for="materia">Materia</label>
-            <input type="text" class="form-control" id="materia" th:value="${mtr.materia}">
+            <input type="text" class="form-control" id="materia">
           </div>
           <div class="form-group col-md-3">
             <label for="age">Edad</label>
-            <input type="number" max="100" min="18" class="form-control" id="age" th:value="${mtr.edad}">
+            <input type="number" max="100" min="18" class="form-control" id="age">
           </div>
           <div class="form-group col-md-6">
             <label for="nPhone">No. Teléfono</label>
-            <input type="number" class="form-control" id="nPhone" th:value="${mtr.phone}">
+            <input type="number" class="form-control" id="nPhone">
           </div>
           <div class="form-group col-md-6">
             <label for="mail">Correo institucional</label>
-            <input type="mail" class="form-control" id="mail" th:value="${mtr.email}">
+            <input type="mail" class="form-control" id="mail">
           </div>
         </div>
-        <input type="hidden" class="form-control" th:value="${mtr.ID}" id="ID">
         <button type="button" class="btn btn-primary" id="sub">Guardar maestro</button>
         <a href="../../../../html/mainAdmin.html">Cancelar</a>
       </form>
+      <p id="mensaje" ></p>
       <script src="js/agregar.js"></script>
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
