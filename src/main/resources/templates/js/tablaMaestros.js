@@ -1,5 +1,5 @@
 window.onload = function() {
-    axios.post('http://127.0.0.1:4567/tablaMaestros', {
+    axios.post('https://cole-sag.herokuapp.com/tablaMaestros', {
     })
     .then(function (response) {
         console.log(response)
@@ -41,14 +41,14 @@ window.onload = function() {
               verMaestro.setAttribute("scope", "row");
               var anclaVer = document.createElement('a');
               anclaVer.setAttribute("class", "text-dark");
-              anclaVer.setAttribute("href", "http://127.0.0.1:4567/verInfo?id="+response.data[clave].ID);
+              anclaVer.setAttribute("href", "https://cole-sag.herokuapp.com/verInfo?id="+response.data[clave].ID);
               anclaVer.innerHTML = response.data[clave].name;
               verMaestro.appendChild(anclaVer);
               renglonBody.appendChild(verMaestro);
 
               var modificarMaestro = document.createElement('td');
               var anclaMod = document.createElement('a');
-              anclaMod.setAttribute("href", "http://127.0.0.1:4567/getDatos?id="+response.data[clave].ID);
+              anclaMod.setAttribute("href", "https://cole-sag.herokuapp.com/getDatos?id="+response.data[clave].ID);
               anclaMod.setAttribute("class", "btn btn-warning");
               var imgMod = document.createElement('img');
               imgMod.setAttribute("src", "../images/iconos/pencil.svg");
@@ -58,7 +58,7 @@ window.onload = function() {
 
               var eliminarMaestro = document.createElement('td');
               var anclaDel = document.createElement('a');
-              anclaDel.setAttribute("href", "http://127.0.0.1:4567/eliminar?id="+response.data[clave].ID+"&name="+response.data[clave].name);
+              anclaDel.setAttribute("href", "https://cole-sag.herokuapp.com/eliminar?id="+response.data[clave].ID+"&name="+response.data[clave].name);
               anclaDel.setAttribute("class", "btn btn-danger");
               var imgDel = document.createElement('img');
               imgDel.setAttribute("src", "../images/iconos/trashcan.svg");

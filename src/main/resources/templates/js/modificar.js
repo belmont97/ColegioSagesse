@@ -1,7 +1,7 @@
 var btnAccep = document.getElementById("sub"); 
 btnAccep.addEventListener('click', function(){
     $('#exampleModal').modal('hide');
-    axios.post('http://127.0.0.1:4567/modificar', {
+    axios.post('https://cole-sag.herokuapp.com/modificar', {
         ID : document.getElementById('ID').value,
         name: document.getElementById('name').value,
         rfc: document.getElementById('rfc').value,

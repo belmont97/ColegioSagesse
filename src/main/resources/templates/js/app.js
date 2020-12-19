@@ -25,7 +25,7 @@ function validar_iniciar_sesion(e){
     // en este caso con  sagesse y admin
     if(usuario=="sagesse" && password1=="admin"){
         // si es correcto se abre la ventana de la pagina con el sistema 
-       window.location.href = "http://127.0.0.1:4567/mainAdmin";
+       window.location.href = "https://cole-sag.herokuapp.com/mainAdmin";
         // y se cierra la ventana del login
     }else{
         // en caso de que sean incorrectos el usuario o contraseña, se envía un mensaje de notificación
