@@ -19,8 +19,7 @@ public class App {
     public static void main(String[] args) {
         staticFileLocation("/templates");
         port(getHerokuAssignedPort());
-        get("/",(req, res)->{
-        return ""; });
+        
         metodosJorge mj = new metodosJorge();
         options("/*", (request,response)->{
             String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
