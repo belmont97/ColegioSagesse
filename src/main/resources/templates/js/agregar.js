@@ -17,6 +17,8 @@ btnAccep.addEventListener('click', function(){
         console.log(response)
         console.log(response.data)
         console.log(response.statusText)
+        var mensaje = document.getElementById("mensaje"); 
+        mensaje.innerHTML = response.data;
     }).catch(function (error) {
         console.log(error)
     })

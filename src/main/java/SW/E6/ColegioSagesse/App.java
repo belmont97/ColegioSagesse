@@ -3,9 +3,7 @@ import com.google.gson.*;
 
 import static spark.Spark.*;
 import spark.ModelAndView;
-import spark.Route;
 import static spark.Spark.staticFileLocation;
-import spark.Spark;
 import spark.template.thymeleaf.*;
 
 import java.util.HashMap;
@@ -19,10 +17,10 @@ public class App {
     private static Gson gson = new Gson();
 
     public static void main(String[] args) {
+        staticFileLocation("/templates");
         port(getHerokuAssignedPort());
         get("/",(req, res)->{
         return ""; });
-        staticFileLocation("/templates");
         metodosJorge mj = new metodosJorge();
         options("/*", (request,response)->{
             String accessControlRequestHeaders = request.headers("Access-Control-Request-Headers");
@@ -38,7 +36,7 @@ public class App {
         before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
         //before((req, res)->res.type("application/json"));
         //before((req, res)->res.type("*/*"));
-        post("/tablaMaestros", (req, res) -> gson.toJson(mj.getMaestros()));
+        post("/tablaMaestros", (req, res) -> gson.toJson(metodosJorge.getMaestros()));
         
         get("/mainAdmin", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
@@ -87,7 +85,7 @@ public class App {
         get("/maestrosPorGrado", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             //model.put("msj", "mensaje");
-            model.put("mtros", mj.getMaestrosPublico(Integer.parseInt(request.queryParams("id"))));
+            model.put("mtros", metodosJorge.getMaestrosPublico(Integer.parseInt(request.queryParams("id"))));
             return new ModelAndView(model, "html/verMaestrosPublico"); // located in resources/templates
         }, new ThymeleafTemplateEngine());
 
@@ -154,6 +152,11 @@ public class App {
             Maestro master = gson.fromJson(query, Maestro.class);
             return mj.guardarMaestro(master);
         });
+
+        get("/agregar", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/agregarMaestro");
+        }, new ThymeleafTemplateEngine());
 
 }
 static int getHerokuAssignedPort() {
