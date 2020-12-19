@@ -1,7 +1,7 @@
 var btnAccep = document.getElementById("sub"); 
 btnAccep.addEventListener('click', function(){
 
-    axios.post('http://127.0.0.1:4567/agregarMaestro', {
+    axios.post('https://cole-sag.herokuapp.com/agregarMaestro', {
         name: document.getElementById('name').value,
         rfc: document.getElementById('rfc').value,
         curp: document.getElementById('curp').value,
