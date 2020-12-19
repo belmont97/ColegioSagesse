@@ -153,6 +153,11 @@ public class App {
             return mj.guardarMaestro(master);
         });
 
+        get("/agregar", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "html/agregarMaestro");
+        }, new ThymeleafTemplateEngine());
+
 }
 static int getHerokuAssignedPort() {
     ProcessBuilder processBuilder = new ProcessBuilder();
