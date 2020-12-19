@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Conexion {
     //Conexion de BD local
-    private static String  url ="jdbc:mysql:/localhost:3306/colegio?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false";
+    private static String  url ="jdbc:mysql://localhost:3306/colegio?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false";
     
     private static String driverName = "com.mysql.cj.jdbc.Driver";
     private static String user = "root";

@@ -89,7 +89,7 @@ public class App {
         }, new ThymeleafTemplateEngine());
 
         /*                parte de Sam y Jessi <3*/ 
-        get("/Inicio", (request, response) -> {
+        get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "html/index");
         }, new ThymeleafTemplateEngine());
@@ -145,10 +145,11 @@ public class App {
         }, new ThymeleafTemplateEngine());
         
         /*                parte de Richard                       */ 
-        get("/agregarMaestro", (request, response) -> {
+        post("/agregarMaestro", (request, response) -> {
             String query = request.body();
             System.out.println("Se solicitó" +query);
             Maestro master = gson.fromJson(query, Maestro.class);
+            master.setID(0);
             return mj.guardarMaestro(master);
         });
 

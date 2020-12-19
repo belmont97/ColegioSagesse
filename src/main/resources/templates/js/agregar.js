@@ -1,8 +1,7 @@
 var btnAccep = document.getElementById("sub"); 
 btnAccep.addEventListener('click', function(){
 
-    axios.get('http://127.0.0.1:4567/agregarMaestro', { //la direccion se debe sustituir por el que me de Heroku
-        ID : document.getElementById('ID').value,
+    axios.post('http://127.0.0.1:4567/agregarMaestro', {
         name: document.getElementById('name').value,
         rfc: document.getElementById('rfc').value,
         curp: document.getElementById('curp').value,
