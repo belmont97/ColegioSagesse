@@ -61,7 +61,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1:4567/Inicio">Inicio</a>
+            <a class="nav-link" href="http://127.0.0.1:4567/">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="http://127.0.0.1:4567/mainAdmin">Administrador Principal</a>
@@ -70,10 +70,10 @@
             <a class="nav-link" href="http://127.0.0.1:4567/agregarMaestro">Agrega maestros</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1:4567/Inicio#ubicacion">Ubicación</a>
+            <a class="nav-link" href="http://127.0.0.1:4567/#ubicacion">Ubicación</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1:4567/Inicio#contacto">Contacto</a>
+            <a class="nav-link" href="http://127.0.0.1:4567/#contacto">Contacto</a>
           </li>
         </ul>
       </div>
@@ -116,7 +116,7 @@
           </div>
           <div class="form-group col-md-6">
             <label for="nPhone">No. Teléfono</label>
-            <input type="number" class="form-control" id="nPhone" th:value="${mtr.phone}">
+            <input type="tel" class="form-control" maxlength="10" id="nPhone" th:value="${mtr.phone}">
           </div>
           <div class="form-group col-md-6">
             <label for="mail">Correo institucional</label>

@@ -10,7 +10,7 @@ public class Maestro {
     private String materia;
     private String address;
     private int edad;
-    private int phone;
+    private String phone;
     private String email;
 
     public Maestro() {
@@ -95,11 +95,11 @@ public class Maestro {
         this.edad = edad;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -112,7 +112,7 @@ public class Maestro {
     }
 
     public Maestro(int iD, String name, String rfc, String curp, String imparte, int grado, String materia,
-            String address, int edad, int phone, String email) {
+            String address, int edad, String phone, String email) {
         this.ID = iD;
         this.name = name;
         this.rfc = rfc;

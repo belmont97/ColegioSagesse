@@ -136,11 +136,11 @@
           <artifactId>heroku-maven-plugin</artifactId>
           <version>3.0.4</version>
           <configuration>
-            <jdkVersion>1.8</jdkVersion>
+            <jdkVersion>11.0.9</jdkVersion>
             <appName>cole-sag</appName>
             <processTypes>
               <!--Tell Heroku lunches the aplication-->
-              <web>java -jar ./target/my-app-1.0-jar-with-dependencies.jar</web>
+              <web>java -jar ./target/ColegioSagesse-1.0-SNAPSHOT-jar-with-dependencies.jar</web>
             </processTypes>
           </configuration>
         </plugin>

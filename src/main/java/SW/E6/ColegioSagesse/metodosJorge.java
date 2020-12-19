@@ -110,7 +110,7 @@ public class metodosJorge {
             rs = stm.executeQuery();
             if(rs!=null){ 
                 while (rs.next()) {  
-                    mtro = new Maestro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getString(11));
+                    mtro = new Maestro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10), rs.getString(11));
                 }
             }else{
                 System.out.println("Datos no encontrados");
@@ -160,7 +160,7 @@ public class metodosJorge {
             stm.setString(6, mtr.getMateria());
             stm.setString(7, mtr.getAddress());
             stm.setInt(8, mtr.getEdad());
-            stm.setInt(9, mtr.getPhone());
+            stm.setString(9, mtr.getPhone());
             stm.setString(10, mtr.getEmail());
             stm.setInt(11, mtr.getID());
             if(stm.executeUpdate()>0){
@@ -209,7 +209,7 @@ public class metodosJorge {
             rs = stm.executeQuery();
             if(rs!=null){
                 while (rs.next()) {               // Situar el cursor 
-                    Maestro mtr = new Maestro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getString(11));
+                    Maestro mtr = new Maestro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10), rs.getString(11));
                     resultado.add(mtr);
                 }
             }else{
@@ -250,19 +250,18 @@ public class metodosJorge {
         ResultSet  rs = null;
         Connection conexion = Conexion.getConection();
         try {
-            String consulta = "INSERT INTO maestro ( NoTrabajador,  Nombre, RFC, Curp, Imparte, Grado, NombreMateria, Direccion, Edad, No_Telefono, CorreoInstitucional) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String consulta = "INSERT INTO maestro (Nombre, RFC, Curp, Imparte, Grado, NombreMateria, Direccion, Edad, No_Telefono, CorreoInstitucional) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             stm = conexion.prepareStatement(consulta);
-            stm.setInt(1, maestro.getID());
-            stm.setString(2, maestro.getName() );
-            stm.setString(3, maestro.getRfc() );
-            stm.setString(4, maestro.getCurp() );
-            stm.setString(5, maestro.getImparte() );
-            stm.setInt(6, maestro.getGrado() );
-            stm.setString(7, maestro.getMateria() );
-            stm.setString(8, maestro.getAddress() );
-            stm.setInt(9, maestro.getEdad() );
-            stm.setInt(10, maestro.getPhone() );
-            stm.setString(11, maestro.getEmail() );
+            stm.setString(1, maestro.getName() );
+            stm.setString(2, maestro.getRfc() );
+            stm.setString(3, maestro.getCurp() );
+            stm.setString(4, maestro.getImparte() );
+            stm.setInt(5, maestro.getGrado() );
+            stm.setString(6, maestro.getMateria() );
+            stm.setString(7, maestro.getAddress() );
+            stm.setInt(8, maestro.getEdad() );
+            stm.setString(9, maestro.getPhone() );
+            stm.setString(10, maestro.getEmail() );
            if(stm.executeUpdate()> 0 )
                 validacion = "Se agregó un maestro";
            else
