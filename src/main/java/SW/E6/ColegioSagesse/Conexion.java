@@ -15,10 +15,10 @@ public class Conexion {
 
 
     //Conexion de BD remota (en nube)
-    private static String  url ="jdbc:mysql://db4free.net/:3306/colegiosag";
+    private static String  url ="jdbc:mysql://ueewvw3ktlmys8bd:pE581YOTAD7TUlLVFUGQ@bw2wf30sqleoklsh9non-mysql.services.clever-cloud.com:3306/bw2wf30sqleoklsh9non";
     private static String driverName = "com.mysql.cj.jdbc.Driver";
-    private static String user = "srgato";
-    private static String password = "Xbox3605";
+    private static String user = "ueewvw3ktlmys8bd";
+    private static String password = "pE581YOTAD7TUlLVFUGQ";
     private static Connection conection = null;
 
     public static Connection getConection(){
