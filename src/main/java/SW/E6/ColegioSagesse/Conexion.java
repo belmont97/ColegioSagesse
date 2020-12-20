@@ -15,8 +15,7 @@ public class Conexion {
 
 
     //Conexion de BD remota (en nube)
-    private static String  url ="jdbc:mysql://www.db4free.net/:3306/colegiosag?serverTimezone=UTC&useLegacyDatetimeCode=false";
-    
+    private static String  url ="jdbc:mysql://db4free.net/:3306/colegiosag";
     private static String driverName = "com.mysql.cj.jdbc.Driver";
     private static String user = "srgato";
     private static String password = "Xbox3605";
