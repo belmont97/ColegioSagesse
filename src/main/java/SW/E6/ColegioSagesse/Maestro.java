@@ -6,10 +6,10 @@ public class Maestro {
     private String rfc;
     private String curp;
     private String imparte;
-    private int grado;
+    private String grado;
     private String materia;
     private String address;
-    private int edad;
+    private String edad;
     private String phone;
     private String email;
 
@@ -63,11 +63,11 @@ public class Maestro {
         this.imparte = imparte;
     }
 
-    public int getGrado() {
+    public String getGrado() {
         return grado;
     }
 
-    public void setGrado(int grado) {
+    public void setGrado(String grado) {
         this.grado = grado;
     }
 
@@ -87,11 +87,11 @@ public class Maestro {
         this.address = address;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 
@@ -111,8 +111,8 @@ public class Maestro {
         this.email = email;
     }
 
-    public Maestro(int iD, String name, String rfc, String curp, String imparte, int grado, String materia,
-            String address, int edad, String phone, String email) {
+    public Maestro(int iD, String name, String rfc, String curp, String imparte, String grado, String materia,
+            String address, String edad, String phone, String email) {
         this.ID = iD;
         this.name = name;
         this.rfc = rfc;

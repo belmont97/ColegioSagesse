@@ -61,7 +61,7 @@ public class metodosJorge {
         ResultSet rs = null;
         con = Conexion.getConection();
         try{
-            String sql = "DELETE FROM maestro WHERE NoTrabajador=?";
+            String sql = "DELETE FROM MAESTRO WHERE NoTrabajador=?";
             stm = con.prepareStatement(sql);
             stm.setInt(1, numTrabajador);
             if(stm.executeUpdate()>0){
@@ -104,14 +104,15 @@ public class metodosJorge {
         Maestro mtro = new Maestro();
         con = Conexion.getConection();
         try{
-            String sql = "SELECT * FROM maestro WHERE NoTrabajador=?";
+            String sql = "SELECT * FROM MAESTRO WHERE NoTrabajador=?";
             stm = con.prepareStatement(sql);
             stm.setInt(1, id);
             rs = stm.executeQuery();
             if(rs!=null){ 
                 while (rs.next()) {  
-                    mtro = new Maestro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10), rs.getString(11));
+                    mtro = new Maestro( rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));
                 }
+                System.out.println("no es nulo jeje");
             }else{
                 System.out.println("Datos no encontrados");
             }
@@ -150,16 +151,16 @@ public class metodosJorge {
         ResultSet rs = null;
         con = Conexion.getConection();
         try{
-            String sql = "UPDATE maestro SET Nombre=?, RFC=?, Curp=?, Imparte=?, Grado=?, NombreMateria=?, Direccion=?, Edad=?, No_Telefono=?, CorreoInstitucional=? WHERE NoTrabajador=?";
+            String sql = "UPDATE MAESTRO SET Nombre=?, RFC=?, Curp=?, Imparte=?, Grado=?, NombreMateria=?, Direccion=?, Edad=?, No_Telefono=?, CorreoInstitucional=? WHERE NoTrabajador=?";
             stm = con.prepareStatement(sql);
             stm.setString(1, mtr.getName());
             stm.setString(2, mtr.getRfc());
             stm.setString(3, mtr.getCurp());
             stm.setString(4, mtr.getImparte());
-            stm.setInt(5, mtr.getGrado());
+            stm.setString(5, mtr.getGrado());
             stm.setString(6, mtr.getMateria());
             stm.setString(7, mtr.getAddress());
-            stm.setInt(8, mtr.getEdad());
+            stm.setString(8, mtr.getEdad());
             stm.setString(9, mtr.getPhone());
             stm.setString(10, mtr.getEmail());
             stm.setInt(11, mtr.getID());
@@ -209,7 +210,7 @@ public class metodosJorge {
             rs = stm.executeQuery();
             if(rs!=null){
                 while (rs.next()) {               // Situar el cursor 
-                    Maestro mtr = new Maestro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getInt(9), rs.getString(10), rs.getString(11));
+                    Maestro mtr = new Maestro(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11));
                     resultado.add(mtr);
                 }
             }else{
@@ -250,16 +251,16 @@ public class metodosJorge {
         ResultSet  rs = null;
         Connection conexion = Conexion.getConection();
         try {
-            String consulta = "INSERT INTO maestro (Nombre, RFC, Curp, Imparte, Grado, NombreMateria, Direccion, Edad, No_Telefono, CorreoInstitucional) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String consulta = "INSERT INTO MAESTRO (Nombre, RFC, Curp, Imparte, Grado, NombreMateria, Direccion, Edad, No_Telefono, CorreoInstitucional) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             stm = conexion.prepareStatement(consulta);
             stm.setString(1, maestro.getName() );
             stm.setString(2, maestro.getRfc() );
             stm.setString(3, maestro.getCurp() );
             stm.setString(4, maestro.getImparte() );
-            stm.setInt(5, maestro.getGrado() );
+            stm.setString(5, maestro.getGrado() );
             stm.setString(6, maestro.getMateria() );
             stm.setString(7, maestro.getAddress() );
-            stm.setInt(8, maestro.getEdad() );
+            stm.setString(8, maestro.getEdad() );
             stm.setString(9, maestro.getPhone() );
             stm.setString(10, maestro.getEmail() );
            if(stm.executeUpdate()> 0 )
