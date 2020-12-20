@@ -1,6 +1,6 @@
 var btnAccep = document.getElementById("sub"); 
 btnAccep.addEventListener('click', function(){
-
+    $('#exampleModal').modal('hide');
     axios.post('https://cole-sag.herokuapp.com/agregarMaestro', {
         
         name: document.getElementById('name').value,
@@ -20,6 +20,7 @@ btnAccep.addEventListener('click', function(){
         console.log(response.statusText)
         var mensaje = document.getElementById("mensaje"); 
         mensaje.innerHTML = response.data;
+        $('#realizado').modal('show')
     }).catch(function (error) {
         console.log(error)
     })
